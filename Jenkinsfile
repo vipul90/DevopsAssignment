@@ -33,7 +33,33 @@ stages
 			sh "dotnet restore"	 
 		}
     }
-	
+	stage ('Start sonarqube analysis')
+	{
+		steps
+		{
+			withSonarQubeEnv('Test_Sonar')
+			{
+				sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:$JOB_NAME /n:$JOB_NAME /v:1.0 "    
+			}
+		}
+	}
+	stage ('build')
+	{
+		steps
+		{
+			sh "dotnet build -c Release -o DevopsApp/app/build"
+		}	
+	}
+	stage ('SonarQube Analysis end')
+	{	
+		steps
+		{
+		    withSonarQubeEnv('Test_Sonar')
+			{
+				sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+			}
+		}
+	}
 	
 }
 
