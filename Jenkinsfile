@@ -3,7 +3,7 @@ pipeline{
 
 environment
 {
-    PATH = C:\Program Files\Git\usr\bin   
+    scannerHome = tool name: 'sonar_scanner_dotnet', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation'   
 }
 options
    {
