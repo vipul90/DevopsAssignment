@@ -1,10 +1,7 @@
 pipeline{
 	agent any
 
-environment
-{
-    PATH : 'C:\\Program Files\\Git\\usr\\bin'   
-}
+
 options
    {
       timeout(time: 1, unit: 'HOURS')
