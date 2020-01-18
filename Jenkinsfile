@@ -1,7 +1,10 @@
 pipeline{
 	agent any
 
-
+environment
+{
+    scannerHome = tool name: 'sonar_scanner_dotnet', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation'   
+}
 options
    {
       timeout(time: 1, unit: 'HOURS')
