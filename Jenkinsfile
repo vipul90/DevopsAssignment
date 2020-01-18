@@ -47,7 +47,7 @@ stages
 	{
 		steps
 		{
-			sh "dotnet build -c Release -o WebApplication4/app/build"
+			sh "dotnet build -c Release -o DevopsApp/app/build"
 		}	
 	}
 	stage ('SonarQube Analysis end')
@@ -64,7 +64,7 @@ stages
 	{
 	    steps
 	    {
-	        sh "dotnet publish -c Release -o WebApplication4/app/publish"
+	        sh "dotnet publish -c Release -o DevopsApp/app/publish"
 	    }
 	}
 	stage ('Docker Image')
