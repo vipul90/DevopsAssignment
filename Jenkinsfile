@@ -18,22 +18,21 @@ options
      
 stages
 {
-	stage ('checkout')
+	stage ('Checkout Branch')
     {
 		steps
 		{
-			echo  " ********** Clone starts ******************"
 		    checkout scm	 
 		}
     }
-    stage ('nuget')
+    stage ('Restoring Nuget')
     {
 		steps
 		{
 			sh "dotnet restore"	 
 		}
     }
-	stage ('Start sonarqube analysis')
+	stage ('Starting Sonarqube analysis')
 	{
 		steps
 		{
@@ -43,14 +42,14 @@ stages
 			}
 		}
 	}
-	stage ('build')
+	stage ('Building Code')
 	{
 		steps
 		{
 			sh "dotnet build -c Release -o DevopsApp/app/build"
 		}	
 	}
-	stage ('SonarQube Analysis end')
+	stage ('Ending SonarQube Analysis')
 	{	
 		steps
 		{
@@ -67,6 +66,7 @@ stages
 	        sh "dotnet publish -c Release -o DevopsApp/app/publish"
 	    }
 	}
+
 }
 
  post {
