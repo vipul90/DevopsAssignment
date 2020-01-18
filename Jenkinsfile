@@ -27,7 +27,7 @@ stages
     {
 		steps
 		{
-			bat "dotnet restore"	 
+			sh "dotnet restore"	 
 		}
     }
 	
