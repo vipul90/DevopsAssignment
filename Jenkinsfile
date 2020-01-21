@@ -59,7 +59,13 @@ stages
 			}
 		}
 	}
-
+	stage ('Release Artifacts')
+	{
+	    steps
+	    {
+	        sh "dotnet publish -c Release -o DevopsApp/app/publish"
+	    }
+	}
 	
 	stage ('Docker Image')
 	{
