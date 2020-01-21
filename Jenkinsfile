@@ -43,7 +43,7 @@ stages
 	{
 		steps
 		{
-			sh "dotnet build -c Release -o DevopsApp/app/build"
+			sh(script:"dotnet build -c Release -o DevopsApp/app/build", returnStdout: true)
 		}	
 	}
 }
