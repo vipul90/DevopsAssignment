@@ -43,7 +43,7 @@ stages
 	{
 		steps
 		{
-			sh "dotnet build --configuration Release"
+			bat label: '', script: 'dotnet restore'
 		}	
 	}
 }
