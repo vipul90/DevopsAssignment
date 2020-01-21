@@ -32,6 +32,13 @@ stages
 			sh "dotnet restore"	 
 		}
     }
+	stage ('Clean Code')
+    {
+		steps
+		{
+			sh "dotnet clean"	 
+		}
+    }
 	stage ('Starting Sonarqube analysis')
 	{
 		steps
@@ -46,7 +53,7 @@ stages
 	{
 		steps
 		{
-			sh "dotnet build -c Release -o DevopsApp/bin/build"
+			sh "dotnet build -c Release -o DevopsApp/app/build"
 		}	
 	}
 	stage ('Ending SonarQube Analysis')
@@ -63,7 +70,7 @@ stages
 	{
 	    steps
 	    {
-	        sh "dotnet publish -c Release -o DevopsApp/bin/publish"
+	        sh "dotnet publish -c Release -o DevopsApp/app/publish"
 	    }
 	}
 	
