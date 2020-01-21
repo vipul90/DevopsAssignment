@@ -74,6 +74,28 @@ stages
 		    sh returnStdout: true, script: '/bin/docker build --no-cache -t devopsApp_vipulchohan:${BUILD_NUMBER} .'
 		}
 	}
+	
+	stage ('Stop Running container')
+	{
+	    steps
+	    {
+	        sh '''
+                ContainerID=$(docker ps | grep 5400 | cut -d " " -f 1)
+                if [  $ContainerID ]
+                then
+                    docker stop $ContainerID
+                    docker rm -f $ContainerID
+                fi
+            '''
+	    }
+	}
+	stage ('Docker deployment')
+	{
+	    steps
+	    {
+	       sh 'docker run --name devopsApp_vipulchohan -d -p 5400:80 devopsApp_vipulchohan:${BUILD_NUMBER}'
+	    }
+	}
 
 }
 
