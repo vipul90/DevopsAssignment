@@ -66,6 +66,14 @@ stages
 	        sh "dotnet publish -c Release -o DevopsApp/app/publish"
 	    }
 	}
+	
+	stage ('Docker Image')
+	{
+		steps
+		{
+		    sh returnStdout: true, script: '/bin/docker build --no-cache -t devopsApp_vipulchohan:${BUILD_NUMBER} .'
+		}
+	}
 
 }
 
