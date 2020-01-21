@@ -43,7 +43,7 @@ stages
 	{
 		steps
 		{
-			bat label: '', script: 'dotnet restore'
+			sh "dotnet build -c Release -o DevopsApp/app/build"
 		}	
 	}
 }
