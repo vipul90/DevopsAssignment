@@ -43,7 +43,8 @@ stages
 	{
 		steps
 		{
-			sh(script:"dotnet build -c Debug -o ${WORKSPACE}/bin/build", returnStdout: true)
+			echo $(WORKSPACE)
+			sh "dotnet build -c Release -o DevopsApp/app/build"
 		}	
 	}
 }
