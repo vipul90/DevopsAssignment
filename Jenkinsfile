@@ -43,7 +43,7 @@ stages
 	{
 		steps
 		{
-			echo $(WORKSPACE)
+			echo "${env.WORKSPACE}"
 			sh "dotnet build -c Release -o DevopsApp/app/build"
 		}	
 	}
