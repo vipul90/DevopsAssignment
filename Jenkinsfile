@@ -21,13 +21,7 @@ stages
 		    checkout scm	 
 		}
     }
-    stage ('Restoring Nuget')
-    {
-		steps
-		{
-			sh "dotnet restore"	 
-		}
-    }
+   
 	stage ('Clean Code')
     {
 		steps
