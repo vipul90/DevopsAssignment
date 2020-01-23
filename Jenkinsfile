@@ -39,14 +39,14 @@ stages
 	{
 		steps
 		{
-			sh "dotnet build -c Release -o DevopsApp/app/build"
+			sh "dotnet build -c Release -o DevopsAppPublish/app/build"
 		}	
 	}
 	stage ('Release Artifacts')
 	{
 	    steps
 	    {
-	        sh "dotnet publish -c Release -o DevopsApp/app/publish"
+	        sh "dotnet publish -c Release -o DevopsAppPublish/app/publish"
 	    }
 	}
 	
@@ -76,6 +76,7 @@ stages
 	{
 	    steps
 	    {
+		  def 
 	       sh 'docker run --name devopsAppTest -d -p 5800:90 vipulchohan_devopsapp:${BUILD_NUMBER}'
 	    }
 	}
