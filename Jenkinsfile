@@ -76,7 +76,7 @@ stages
 	{
 	    steps
 	    {
-	       sh 'docker run --name devopsAppTest1 -d -p 5401:90 vipulchohan_devopsapp:${BUILD_NUMBER}'
+	       sh 'docker run --name devopsAppTest101 -d -p 5401:90 vipulchohan_devopsapp:${BUILD_NUMBER}'
 	    }
 	}
 	
