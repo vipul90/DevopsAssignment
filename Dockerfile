@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build-env
 WORKDIR /app
 COPY DevopsAppPublish/app/publish .
 ENTRYPOINT ["dotnet", "DevopsApp.dll"]
