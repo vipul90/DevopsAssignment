@@ -63,7 +63,7 @@ stages
 	    steps
 	    {
 	        sh '''
-                ContainerID=$(docker ps | grep 5401 | cut -d " " -f 1)
+                ContainerID=$(docker ps | grep 5800 | cut -d " " -f 1)
                 if [  $ContainerID ]
                 then
                     docker stop $ContainerID
@@ -76,7 +76,7 @@ stages
 	{
 	    steps
 	    {
-	       sh 'docker run --name devopsApp -d -p 5401:80 vipulchohan_devopsapp:${BUILD_NUMBER}'
+	       sh 'docker run --name devopsAppTest -d -p 5800:90 vipulchohan_devopsapp:${BUILD_NUMBER}'
 	    }
 	}
 	
