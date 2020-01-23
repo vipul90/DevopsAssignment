@@ -76,7 +76,6 @@ stages
 	{
 	    steps
 	    {
-		  def 
 	       sh 'docker run --name devopsAppTest -d -p 5800:90 vipulchohan_devopsapp:${BUILD_NUMBER}'
 	    }
 	}
