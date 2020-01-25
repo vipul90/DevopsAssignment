@@ -69,6 +69,13 @@ stages
                     docker stop $ContainerID
                     docker rm -f $ContainerID
                 fi
+				
+				ContainerIDByName=$(docker ps -all | grep devopsAppNetCore | cut -d " " -f 1)
+                if [  $ContainerIDByName ]
+                then
+                    docker stop $ContainerIDByName
+                    docker rm -f $ContainerIDByName
+                fi
             '''
 	    }
 	}
@@ -76,7 +83,7 @@ stages
 	{
 	    steps
 	    {
-	       sh 'docker run --name devopsAppTest101 -d -p 5401:90 vipulchohan_devopsapp:${BUILD_NUMBER}'
+	       sh 'docker run --name devopsAppNetCore -d -p 5401:90 vipulchohan_devopsapp:${BUILD_NUMBER}'
 	    }
 	}
 	
